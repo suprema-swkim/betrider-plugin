@@ -1,6 +1,16 @@
 # Betrider Plugin for Claude Code
 
-Claude Code를 위한 커스텀 슬래시 명령어 플러그인 마켓플레이스입니다.
+Claude Code를 위한 종합 플러그인입니다. 코드베이스 문서화, 전문 에이전트, 코드 리뷰, 자동화 hooks, MCP 통합을 제공합니다.
+
+## 주요 기능
+
+| 기능 | 개수 | 설명 |
+|------|------|------|
+| **Agents** | 8 | 분석, 설계, 코딩, 테스트, PR 생성 등 전문 에이전트 |
+| **Skills** | 1 | 코드 리뷰 스킬 |
+| **Commands** | 1 | /deepinit 코드베이스 문서화 |
+| **Hooks** | 5 | 코드 품질 및 자동화 |
+| **MCP** | 1 | Context7 통합 |
 
 ## 설치 방법
 
@@ -14,7 +24,55 @@ Claude Code를 위한 커스텀 슬래시 명령어 플러그인 마켓플레이
 /plugin install betrider-plugin@betrider-plugins
 ```
 
-## 포함된 명령어
+---
+
+## Agents
+
+전문화된 에이전트들이 페이지 개발 파이프라인을 자동화합니다.
+
+| Agent | 역할 | 색상 |
+|-------|------|------|
+| **analyst** | 자연어 요청을 구조화된 요구사항으로 변환 | 🔵 blue |
+| **planner** | 페이지 단위 작업 계획 수립, 워크트리/브랜치 계획 | 🟣 purple |
+| **designer** | UI 구조 설계, 컴포넌트 트리 정의 | 🩷 pink |
+| **api-mapper** | API 스펙 분석, 엔드포인트 매핑, 타입 정의 | 🟠 orange |
+| **coder** | 실제 코드 작성, TypeScript/ESLint 검증 | 🟢 green |
+| **tester** | 브라우저 테스트, 스크린샷 캡처 | 🟡 yellow |
+| **pr-creator** | 커밋 생성, GitHub PR 생성, 워크트리 정리 | 🔴 red |
+| **page-pipeline** | 전체 파이프라인 오케스트레이터 | 🩵 cyan |
+
+### 파이프라인 흐름
+
+```
+Analyst → Planner → Designer → API Mapper → Coder → Tester → PR Creator
+                         ↑
+                   Page Pipeline (오케스트레이터)
+```
+
+### 사용 예시
+
+```
+@analyst 사용자 관리 페이지를 만들어줘
+@planner 요구사항을 페이지별로 분해해줘
+@page-pipeline 전체 구현 파이프라인 실행
+```
+
+---
+
+## Skills
+
+### `/betrider-plugin:code-review`
+
+코드 리뷰 스킬입니다. 다음 항목을 검토합니다:
+
+1. 코드 구조 및 조직
+2. 에러 처리
+3. 보안 문제
+4. 테스트 커버리지
+
+---
+
+## Commands
 
 ### `/betrider-plugin:deepinit`
 
@@ -34,9 +92,11 @@ Claude Code를 위한 커스텀 슬래시 명령어 플러그인 마켓플레이
 - 계층적 참조 구조 유지
 - 기존 문서와 스마트 병합
 
+---
+
 ## Hooks
 
-이 플러그인에는 코드 품질과 자동화를 위한 다양한 hooks가 포함되어 있습니다.
+코드 품질과 자동화를 위한 다양한 hooks가 포함되어 있습니다.
 
 ### 포함된 Hooks
 
@@ -84,25 +144,59 @@ claude --plugin-dir ./betrider-plugin
 }
 ```
 
+---
+
+## MCP 통합
+
+### Context7
+
+최신 문서를 가져오기 위한 Context7 MCP 서버가 통합되어 있습니다.
+
+```json
+{
+  "context7": {
+    "command": "cmd",
+    "args": ["/c", "npx", "-y", "@upstash/context7-mcp@latest"]
+  }
+}
+```
+
+---
+
 ## 플러그인 구조
 
 ```
 betrider-plugin/
 ├── .claude-plugin/
-│   ├── marketplace.json   # 마켓플레이스 카탈로그
-│   └── plugin.json        # 플러그인 매니페스트
+│   ├── marketplace.json       # 마켓플레이스 카탈로그
+│   └── plugin.json            # 플러그인 매니페스트
+├── agents/
+│   ├── analyst.md             # 요구사항 분석 에이전트
+│   ├── api-mapper.md          # API 매핑 에이전트
+│   ├── coder.md               # 코드 작성 에이전트
+│   ├── designer.md            # UI 설계 에이전트
+│   ├── page-pipeline.md       # 파이프라인 오케스트레이터
+│   ├── planner.md             # 작업 계획 에이전트
+│   ├── pr-creator.md          # PR 생성 에이전트
+│   └── tester.md              # 테스트 에이전트
 ├── commands/
-│   └── deepinit.md        # /deepinit 명령어
+│   └── deepinit.md            # /deepinit 명령어
 ├── hooks/
-│   ├── hooks.json         # hooks 설정
-│   └── scripts/           # hook 스크립트
-│       ├── validate-bash.py        # Bash 명령어 검증
-│       ├── validate-file-write.py  # 파일 쓰기 검증
-│       ├── post-file-change.py     # 파일 변경 후 처리
-│       ├── prompt-logger.py        # 프롬프트 로깅
-│       └── session-start.py        # 세션 시작 처리
+│   ├── hooks.json             # hooks 설정
+│   └── scripts/               # hook 스크립트
+│       ├── validate-bash.py          # Bash 명령어 검증
+│       ├── validate-file-write.py    # 파일 쓰기 검증
+│       ├── post-file-change.py       # 파일 변경 후 처리
+│       ├── prompt-logger.py          # 프롬프트 로깅
+│       └── session-start.py          # 세션 시작 처리
+├── skills/
+│   └── code-review/
+│       └── SKILL.md           # 코드 리뷰 스킬
+├── .mcp.json                  # MCP 서버 설정
 └── README.md
 ```
+
+---
 
 ## 라이선스
 

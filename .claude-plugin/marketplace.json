@@ -5,18 +5,35 @@
   },
   "metadata": {
     "description": "Betrider의 Claude Code 플러그인 모음",
-    "version": "1.0.0"
+    "version": "1.1.0"
   },
   "plugins": [
     {
       "name": "betrider-plugin",
       "source": "./",
-      "description": "코드베이스 문서화를 위한 deepinit 명령어 포함",
-      "version": "1.0.0",
+      "description": "코드베이스 문서화, 에이전트, 코드 리뷰, 자동화 hooks를 포함한 종합 Claude Code 플러그인",
+      "version": "1.1.0",
       "author": {
         "name": "suprema-swkim"
       },
-      "keywords": ["documentation", "context", "codebase"]
+      "keywords": [
+        "documentation",
+        "context",
+        "codebase",
+        "deepinit",
+        "agents",
+        "code-review",
+        "hooks",
+        "mcp",
+        "automation"
+      ],
+      "features": {
+        "agents": 8,
+        "skills": 1,
+        "commands": 1,
+        "hooks": 5,
+        "mcp": 1
+      }
     }
   ]
 }
