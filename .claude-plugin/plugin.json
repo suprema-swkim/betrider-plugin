@@ -1,0 +1,12 @@
+{
+  "name": "betrider-plugin",
+  "description": "코드베이스 문서화를 위한 deepinit 명령어 포함",
+  "version": "1.0.0",
+  "author": {
+    "name": "suprema-swkim"
+  },
+  "homepage": "https://github.com/suprema-swkim/betrider-plugin",
+  "repository": "https://github.com/suprema-swkim/betrider-plugin",
+  "license": "MIT",
+  "keywords": ["documentation", "context", "codebase", "deepinit"]
+}

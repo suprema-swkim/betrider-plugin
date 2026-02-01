@@ -1,0 +1,22 @@
+{
+  "name": "betrider-plugins",
+  "owner": {
+    "name": "suprema-swkim"
+  },
+  "metadata": {
+    "description": "Betrider의 Claude Code 플러그인 모음",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "betrider-plugin",
+      "source": ".",
+      "description": "코드베이스 문서화를 위한 deepinit 명령어 포함",
+      "version": "1.0.0",
+      "author": {
+        "name": "suprema-swkim"
+      },
+      "keywords": ["documentation", "context", "codebase"]
+    }
+  ]
+}

@@ -1,30 +1,31 @@
 # Betrider Plugin for Claude Code
 
-Claude Code를 위한 커스텀 슬래시 명령어 플러그인 모음입니다.
+Claude Code를 위한 커스텀 슬래시 명령어 플러그인 마켓플레이스입니다.
 
 ## 설치 방법
 
-이 플러그인을 사용하려면 `.claude` 폴더를 홈 디렉토리 또는 프로젝트 루트에 복사하세요:
-
-### 전역 설치 (모든 프로젝트에서 사용)
-```bash
-cp -r .claude ~/.claude
+### 1. 마켓플레이스 추가
+```
+/plugin marketplace add suprema-swkim/betrider-plugin
 ```
 
-### 프로젝트별 설치
-프로젝트 루트에 `.claude` 폴더를 그대로 두면 해당 프로젝트에서만 명령어를 사용할 수 있습니다.
+### 2. 플러그인 설치
+```
+/plugin install betrider-plugin@betrider-plugins
+```
 
 ## 포함된 명령어
 
-### `/deepinit`
+### `/betrider-plugin:deepinit`
+
 계층적 CONTEXT.md 파일로 전체 코드베이스를 재귀적으로 색인합니다.
 
 **사용법:**
 ```
-/deepinit              # 현재 디렉토리 초기화
-/deepinit ./src        # ./src 디렉토리 초기화
-/deepinit --update     # 기존 CONTEXT.md만 업데이트
-/deepinit --dry-run    # 실행 없이 미리보기
+/betrider-plugin:deepinit              # 현재 디렉토리 초기화
+/betrider-plugin:deepinit ./src        # ./src 디렉토리 초기화
+/betrider-plugin:deepinit --update     # 기존 CONTEXT.md만 업데이트
+/betrider-plugin:deepinit --dry-run    # 실행 없이 미리보기
 ```
 
 **기능:**
@@ -33,21 +34,16 @@ cp -r .claude ~/.claude
 - 계층적 참조 구조 유지
 - 기존 문서와 스마트 병합
 
-## 커스텀 명령어 추가하기
+## 플러그인 구조
 
-`.claude/commands/` 디렉토리에 마크다운 파일을 추가하면 새로운 슬래시 명령어를 만들 수 있습니다.
-
-### 명령어 파일 형식
-
-```markdown
----
-description: 명령어에 대한 간단한 설명
-allowed-tools: Task, Read, Write, Glob, Grep
----
-
-명령어 실행 시 Claude에게 전달될 프롬프트 내용
-
-$ARGUMENTS 변수로 사용자가 입력한 인자를 받을 수 있습니다.
+```
+betrider-plugin/
+├── .claude-plugin/
+│   ├── marketplace.json   # 마켓플레이스 카탈로그
+│   └── plugin.json        # 플러그인 매니페스트
+├── commands/
+│   └── deepinit.md        # /deepinit 명령어
+└── README.md
 ```
 
 ## 라이선스
