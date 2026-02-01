@@ -26,14 +26,7 @@
         "hooks",
         "mcp",
         "automation"
-      ],
-      "features": {
-        "agents": 8,
-        "skills": 1,
-        "commands": 1,
-        "hooks": 5,
-        "mcp": 1
-      }
+      ]
     }
   ]
 }
