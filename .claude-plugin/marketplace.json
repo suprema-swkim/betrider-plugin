@@ -10,7 +10,7 @@
   "plugins": [
     {
       "name": "betrider-plugin",
-      "source": ".",
+      "source": "./",
       "description": "코드베이스 문서화를 위한 deepinit 명령어 포함",
       "version": "1.0.0",
       "author": {
