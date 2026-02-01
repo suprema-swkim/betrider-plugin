@@ -18,23 +18,5 @@
     "hooks",
     "mcp",
     "automation"
-  ],
-  "agents": [
-    "agents/analyst.md",
-    "agents/api-mapper.md",
-    "agents/coder.md",
-    "agents/designer.md",
-    "agents/page-pipeline.md",
-    "agents/planner.md",
-    "agents/pr-creator.md",
-    "agents/tester.md"
-  ],
-  "skills": [
-    "skills/code-review"
-  ],
-  "commands": [
-    "commands/deepinit.md"
-  ],
-  "hooks": "hooks/hooks.json",
-  "mcp": ".mcp.json"
+  ]
 }
