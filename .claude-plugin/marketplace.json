@@ -3,30 +3,11 @@
   "owner": {
     "name": "suprema-swkim"
   },
-  "metadata": {
-    "description": "Betrider의 Claude Code 플러그인 모음",
-    "version": "1.1.0"
-  },
   "plugins": [
     {
       "name": "betrider-plugin",
       "source": "./",
-      "description": "코드베이스 문서화, 에이전트, 코드 리뷰, 자동화 hooks를 포함한 종합 Claude Code 플러그인",
-      "version": "1.2.0",
-      "author": {
-        "name": "suprema-swkim"
-      },
-      "keywords": [
-        "documentation",
-        "context",
-        "codebase",
-        "deepinit",
-        "agents",
-        "code-review",
-        "hooks",
-        "mcp",
-        "automation"
-      ]
+      "description": "코드베이스 문서화, 에이전트, 코드 리뷰, 자동화 hooks를 포함한 종합 Claude Code 플러그인"
     }
   ]
 }

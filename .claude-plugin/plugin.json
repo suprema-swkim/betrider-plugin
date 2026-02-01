@@ -1,22 +1,5 @@
 {
   "name": "betrider-plugin",
   "description": "코드베이스 문서화, 에이전트, 코드 리뷰, 자동화 hooks를 포함한 종합 Claude Code 플러그인",
-  "version": "1.1.0",
-  "author": {
-    "name": "suprema-swkim"
-  },
-  "homepage": "https://github.com/suprema-swkim/betrider-plugin",
-  "repository": "https://github.com/suprema-swkim/betrider-plugin",
-  "license": "MIT",
-  "keywords": [
-    "documentation",
-    "context",
-    "codebase",
-    "deepinit",
-    "agents",
-    "code-review",
-    "hooks",
-    "mcp",
-    "automation"
-  ]
+  "version": "1.2.0"
 }
